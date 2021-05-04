@@ -1,7 +1,7 @@
 const express = require('express');
 const https = require('https');
 const bot = require("../bot");
-const config = Object.freeze(require('../config.json'));
+const config = Object.freeze(require('../config/config.js'));
 
 var router = express.Router();
 

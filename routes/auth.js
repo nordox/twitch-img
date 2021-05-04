@@ -2,7 +2,7 @@ const express = require('express');
 const https = require('https');
 const zlib = require('zlib');
 
-const config = Object.freeze(require('../config.json'));
+const config = Object.freeze(require('../config/config.js'));
 const bot = require('../bot');
 
 const router = express.Router();

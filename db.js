@@ -1,7 +1,7 @@
 const { MongoClient } = require('mongodb');
 const assert = require('assert');
 var debug = require('debug')('twitch-img:db');
-const config = Object.freeze(require('./config'));
+const config = Object.freeze(require('./config/config.js'));
 
 const url = `mongodb://${config.db.hostname}:${config.db.port}`;
 const dbName = config.db.name;

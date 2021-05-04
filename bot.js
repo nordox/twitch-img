@@ -1,7 +1,6 @@
 const TwitchBot = require('twitch-bot');
 const db = require('./db');
-const config = Object.freeze(require('./config.json'));
-
+const config = Object.freeze(require('./config/config.js'));
 
 const bot = {
     username: config.user,

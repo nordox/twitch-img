@@ -1,8 +1,8 @@
-{
-    "user": "",
-    "client_id": "",
-    "client_secret": "",
-    "channels": [""],
+module.exports = {
+    "user": process.env.TWITCH_BOT_USER,
+    "client_id": process.env.TWITCH_CLIENT_ID,
+    "client_secret": process.env.TWITCH_CLIENT_SECRET,
+    "channels": process.env.TWITCH_CHANNELS.split(","),
     
     "oauth": {
         "hostname": "id.twitch.tv",
@@ -22,4 +22,4 @@
     "twitch": {
         "hostname": "api.twitch.tv"
     }
-}
+};

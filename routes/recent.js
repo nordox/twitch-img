@@ -1,6 +1,6 @@
 const express = require('express');
 const db = require("../db");
-const config = Object.freeze(require('../config.json'));
+const config = Object.freeze(require('../config/config.js'));
 
 var router = express.Router();
 
