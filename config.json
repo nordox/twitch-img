@@ -1,0 +1,25 @@
+{
+    "user": "",
+    "client_id": "",
+    "client_secret": "",
+    "channels": [""],
+    
+    "oauth": {
+        "hostname": "id.twitch.tv",
+        "redirect": {
+            "protocol": "http",
+            "hostname": "localhost",
+            "port": "3000"
+        }
+    },
+
+    "db": {
+        "name": "twitch",
+        "hostname": "localhost",
+        "port": 27017
+    },
+
+    "twitch": {
+        "hostname": "api.twitch.tv"
+    }
+}

@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+    </head>
+
+    <body>
+
+        <script>
+            const socket = io();
+            socket.on('link', message => {
+                $('#' + message.room).append(`<li>${toLinks(message.message)}</li>`);
+            });
+
+            function add(channel) {
+            }
+
+            function sub(channel, t) {
+                socket.emit('join', channel);
+                $(`#${channel}_sub`).hide();
+                $(`#${channel}_unsub`).css("display", "initial");
+                $(`#${channel}_unsub`).show();
+            }
+
+            function unsub(channel, t) {
+                socket.emit('leave', channel);
+                $(`#${channel}_unsub`).hide();
+                $(`#${channel}_sub`).show();
+            }
+
+            function clearMessages(channel) {
+                $(`#${channel}`).empty();
+            }
+            
+            function toLinks(text) {
+                return text.replace(/((?=https:\/\/)|(?=http:\/\/))(.*?)(?= |$)/g, '<a href="$&" target="_blank">$&</a>');
+            }
+        </script>
+
+        <input id="txt" type="text" />
+        <button onclick="sub($('#txt').val())">sub</button>
+
+
+        <% for(let channel of channels) { %>
+            <div>
+                <h4 style="display:inline-block; margin:0px;"><%= channel %></h4>
+                
+            
+            <ul id="<%= channel %>"></ul>
+            <button id="<%= channel %>_sub" class="button-primary button-green" onclick="sub('<%= channel %>', this)">get updates</button>
+            <button id="<%= channel %>_unsub" onclick="unsub('<%= channel %>', this)" style="display:none;">Stop updates</button>
+            <button onclick="clearMessages('<%= channel %>')">clear</button>
+        </div>
+        <hr>
+        <% } %>
+
+    </body>
+</html>

@@ -1,0 +1,66 @@
+body {
+  padding: 50px;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.fa-times-circle {
+  font-size: 22px !important;
+  cursor: pointer;
+  color: #c8ccd1;
+}
+
+.fa-times-circle:hover {
+  color: #dee0e2;
+}
+
+.login-container:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0; bottom: 0;
+  z-index: -1;
+  display: block;
+  background-color: black;
+  background-image: url('http://www.10wallpaper.com/wallpaper/medium/1308/Urban_Landscape-Linux_Mint_15_Olivia_HD_Wallpaper_medium.jpg');
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
+
+}
+
+.login-container {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  margin: auto auto; 
+
+  width: 180px;
+  height: 100px;
+  background-color: rgba(10, 10, 10, 0.5);
+  box-shadow: 0 0 10px black;
+}
+
+.login-form {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-btn {
+  background-color: #5a6e82 !important;
+  border-color: #5a6e82 !important;
+}
+
+.login-btn:hover {
+  background-color: #5a6e8269 !important;
+}

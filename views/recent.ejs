@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/style.css" />
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script>
+            function displayMessage(message) {
+                $('#recents').append(`<li>${message.room.toUpperCase()} : ${toLinks(message.message)}</li>`);
+            }
+            function toLinks(text) {
+                return text.replace(/((?=https:\/\/)|(?=http:\/\/))(.*?)(?= |$)/g, '<a href="$&" target="_blank">$&</a>');
+            }
+        </script>
+
+        <h2><%= title %></h2>
+
+        <div>
+            <ul id="recents"></ul>
+        </div>
+
+        <% for(let message of messages) { %>
+            <script>displayMessage({room: '<%= message.room %>', message: '<%= message.message %>'})</script>
+        <% } %>
+
+
+    </body>
+</html>
