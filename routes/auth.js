@@ -60,7 +60,7 @@ router.get('/final', async function (req, res, next) {
 
 		try {
 
-			let topChannels = await getTopChannels(MAX_NUM_CHANNELS);
+			let topChannels = await getTopChannels(MAX_NUM_CHANNELS, js.access_token);
 
 			for (let channel of topChannels) {
 
@@ -93,14 +93,15 @@ router.get('/final', async function (req, res, next) {
 
 /* Get top channels based on viewer count
    up to MAX <= 100 number of channels */
-async function getTopChannels(max) {
+async function getTopChannels(max, token) {
 	const options = {
 		hostname: config.twitch.hostname,
 		port: 443,
 		path: `/helix/streams/?language=en&stream_type=live&limit=${max}`,
 		method: "GET",
 		headers: {
-			"Client-ID": config.client_id
+			"Client-ID": config.client_id,
+			"Authorization": `Bearer ${token}`
 		}
 	}
 
